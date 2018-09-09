@@ -13,9 +13,19 @@ Runnable from a RaspberryPI. Cuz that's what I'm doing.
 
 ## Configuration
 
-Mostly straightforward, but kind of (read: very) wonky still. You can configure this script with a `tun.conf` file in the same directory as this script (**um, not secure at all - it gets sourced**), or you can configure via environment variables.
+It's probably a good idea to first get an auth token for `ngrok` (just go to the website and sign up). Then follow the one-liner to write your auth token to your `ngrok.yml` file.
+
+Configuration is mostly straightforward, but kind of (read: very) wonky still. You can configure this script with a `tun.conf` file in the same directory as this script (**um, not secure at all - it gets sourced**), or you can configure via environment variables.
 
 Generally, all environment variables precede values in `tun.conf` -- except for `NOTIFY_URL` (i.e. the Slack URL). Yeah, that's weird but this whole script was a hack anyway so I'm not fixing this. Deal with it. But anyhow, if you're configuring by environment variables anyway, you probably don't need to use a `tun.conf`.
+
+## `crontab` notes
+
+First off, I configured this script in my user `crontab`, not as `root`. `root` is simply not necessary with `ngrok`.
+
+If you have `ngrok` installed in a directory that's added to your `PATH` from within `.bashrc` or `.bash_profile`, remember to invoke the script with `bash -l`, like so: `/bin/bash -l /path/to/mktun.sh >> /path/to/the.log`. In fact, just do that anyway so `ngrok` will automatically pick up your `ngrok.yml` file in your homedir.
+
+Be wary of the append redirect `>>` unless you have `logrotate` configured. Might be just good enough to do `>`, which is what I did -- I only care about the last run.
 
 ## Why?
 
