@@ -19,7 +19,7 @@ Generally, all environment variables precede values in `tun.conf` -- except for 
 
 ## Why?
 
-I'm about a hour or so drive away from a small office network that I'm managing for a family member. Sometimes the ISP "technicians" come by and jack up the router settings (e.g. factory reset) when connectivity sucks (unfortunately that office is stuck on AT&T for the time being), and I lose my port forwards. I don't want to drive all the way to the office to open up ports again.
+I'm about a hour or so drive away from a small office network that I'm managing for a family member. Sometimes the ISP "technicians" come by and jack up the router settings (e.g. factory reset) when connectivity sucks (unfortunately that office is stuck on AT&T for the time being), and I lose my port forwards. I don't want to drive all the way to the office to open up ports again. Nobody in the office is technical, or reliable enough to be "remote hands."
 
 ## Oh the horror!
 
