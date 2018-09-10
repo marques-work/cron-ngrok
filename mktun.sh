@@ -11,7 +11,7 @@ ABORT_AFTER="${ABORT_AFTER:-60}"
 MONITOR_LOG="${MONITOR_LOG:-/tmp/ngrok.log}"
 
 function now {
-  /bin/date '+%Y-%m-%d %H:%M:%S'
+  /bin/date '+%Y-%m-%d %H:%M:%S %Z'
 }
 
 function info {
