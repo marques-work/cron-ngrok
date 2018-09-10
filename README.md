@@ -19,6 +19,15 @@ Configuration is mostly straightforward, but kind of (read: very) wonky still. Y
 
 Generally, all environment variables precede values in `tun.conf` -- except for `NOTIFY_URL` (i.e. the Slack URL). Yeah, that's weird but this whole script was a hack anyway so I'm not fixing this. Deal with it. But anyhow, if you're configuring by environment variables anyway, you probably don't need to use a `tun.conf`.
 
+### Environment Variables in `tun.conf`
+```bash
+export KEEPALIVE="900" # number of seconds to keep an established tunnel open (15 min default)
+export ABORT_AFTER="60" # connection timeout in seconds before disconnecting on failure
+export MONITOR_LOG="/tmp/ngrok.log" # the log to monitor for ngrok events; used to detect a successful tunnel
+export NOTIFY_URL="..." # the Slack endpoint to receive notifications
+export TZ=":America/Los_Angeles" # sets the time zone for timestamps - otherwise this will probably output UTC
+```
+
 ## `crontab` notes
 
 First off, I configured this script in my user `crontab`, not as `root`. `root` is simply not necessary with `ngrok`.
